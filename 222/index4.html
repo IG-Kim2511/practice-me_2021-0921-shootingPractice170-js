@@ -59,18 +59,67 @@
       const ballElem = document.querySelector(".ball");
       const catElem = document.querySelector(".cat");
 
+      let eClientX_Next;
+
       window.addEventListener("click", (e) => {
-        console.log(e);
-        console.log(e.clientX);
+    
+
+        // console.log(e);
+        // console.log(e.clientX);
         // js 5
         ballElem.style.transform = `translateX(${
           e.clientX - 15
         }px) translateY(${e.clientY - 15}px)`;
 
-        catElem.style.transform = `translateX(${
+   /*      catElem.style.transform = `translateX(${
           e.clientX - 350
-        }px) translateY(${e.clientY - 250}px)`;
-      });
+        }px) translateY(${e.clientY - 150}px)`;   
+ */
+
+        if (e.clientX < eClientX_Next  ) {
+        catElem.style.transform = `rotateY(180deg) translateX(${
+          e.clientX - 350
+        }px) translateY(${e.clientY - 150}px)`;
+        }else{
+        catElem.style.transform = `rotateY(0deg) translateX(${
+          e.clientX - 350
+        }px) translateY(${e.clientY - 150}px)`;
+        }
+
+        eClientX_Next = e.clientX;
+     
+
+
+
+      }
+      
+      
+      
+      );
+
+    
+
+   
+/*       window.addEventListener('click',(e)=>{
+
+
+      }); 
+      
+      */
+
+      //   🍀resize
+
+      let maxSize;
+
+      window.addEventListener("resize", resizeHandler);
+
+      function resizeHandler() {
+        maxSize = window.innerWidth;
+        console.log(maxSize);
+      }
+      resizeHandler();
+
+      console.log(maxSize);
     </script>
   </body>
 </html>
