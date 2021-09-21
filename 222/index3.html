@@ -7,8 +7,15 @@
     <title>Document</title>
 
     <style>
+        body{
+            height: 500vw;
+        }
         .poke{
             width: 10vw;
+
+            transition: .3s ;
+
+            margin: auto;
             
         }
         img{
@@ -59,8 +66,38 @@
 
                 const pokeElem = document.querySelector('.poke');
 
+                let pokeElemGBCR;
 
-// init
+                // init
+
+                window.addEventListener('scroll',init);
+
+                function init(params) {
+                    showValue();
+                    // outputHandler();
+                    
+                }
+
+
+
+                //js 10.,
+
+                function showValue(params) {
+
+                    pokeElemGBCR=pokeElem.getBoundingClientRect().top;
+                    console.log(pokeElemGBCR)
+
+                    if (pokeElemGBCR < 0) {
+                        pokeElem.classList.add('zoom');
+                        
+                    } else {
+                        
+                        pokeElem.classList.remove('zoom');
+                    }
+                    
+                }
+
+
 
 
 
