@@ -1,61 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        body{
-            background-color: #2b9ecb;
-        }
-        .ball{
-            background-color: lightcoral;
-            width: 30px;
-            height: 30px;
+      body {
+        background-color: #2b9ecb;
+      }
+      .ball {
+        background-color: lightcoral;
+        width: 30px;
+        height: 30px;
 
-            position: absolute;
-            left: 0;
-            top: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
 
+        border-radius: 50%;
 
-            border-radius: 50%;
+        transition: 0.5s;
+        /* js 10 */
+      }
 
-            transition: .5s;
-            /* js 10 */
-        }
+      .cat {
+        transition: 1s;
+        transform: rotateY(180deg);
 
-        .cat{
-            transition: 1s;
-            transform: rotateY(180deg);
+        /* js 10 */
+      }
 
-            /* js 10 */
-        }
-
-        .ball.end{
-            background-color: limegreen;
-        }
-        .title{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-
+      .ball.end {
+        background-color: limegreen;
+      }
+      .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="title">
-        <h2>Cat chasing</h2>
-        <h3>click the screen</h3>
+      <h2>Cat chasing</h2>
+      <h3>click the screen</h3>
     </div>
 
     <div class="ball-container">
-        <img src="../img/cat-running-topview (2).gif" alt="" class="cat">
+      <img src="../img/cat-running-topview (2).gif" alt="" class="cat" />
 
-        <!-- js 10 -->
-        <p class="ball"></p>
+      <!-- js 10 -->
+      <p class="ball"></p>
     </div>
-</body>
+
+    <script>
+      const ballElem = document.querySelector(".ball");
+      const catElem = document.querySelector(".cat");
+
+      window.addEventListener("click", (e) => {
+        console.log(e);
+        console.log(e.clientX);
+        // js 5
+        ballElem.style.transform = `translateX(${
+          e.clientX - 15
+        }px) translateY(${e.clientY - 15}px)`;
+
+        catElem.style.transform = `translateX(${
+          e.clientX - 350
+        }px) translateY(${e.clientY - 250}px)`;
+      });
+    </script>
+  </body>
 </html>
