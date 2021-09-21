@@ -78,3 +78,43 @@
 .container{
     position: relative;
 }
+
+.btn-container{
+    background: var(--main-color);
+}
+
+.title{
+    background: var(--main-color);
+    text-align: center;
+}
+/* 🍀myButton  */
+.myButton {
+    /* position: fixed;
+      top: 100px;
+      left: 100px; */
+  
+    z-index: 2;
+  
+    box-shadow: inset 0px 39px 0px -24px #3b5998;
+    background-color: #3b5998;
+    border-radius: 4px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+  
+    font-size: 15px;
+    padding: 6px 15px;
+    text-decoration: none;
+  
+    display: block;
+    margin: auto;
+  }
+  .myButton:hover {
+    /* background-color:  #3b5998; */
+    opacity: 0.6;
+  }
+  .myButton:active {
+    position: relative;
+    top: 1px;
+  }
