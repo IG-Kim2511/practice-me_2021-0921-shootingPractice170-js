@@ -1,0 +1,80 @@
+:root{
+    --main-color:lightgrey;
+}
+
+.stage{
+    width: 100vw;
+    height: 90vh;
+
+    overflow: hidden;
+    position: relative;
+
+    background: lightgrey;
+
+}
+
+@keyframes moving {
+    from{
+        transform: translateX(-20vw);
+    }
+    to{
+        transform: translateX(110vw);
+    }
+    
+}
+
+.poke{
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    
+    animation: moving infinite alternate;
+
+}
+
+.poke:nth-child(1){
+    background-image: url('./images/poke\ \(1\).png');
+
+    left: 5%;
+    bottom: 5%;
+
+    animation-duration: 3s;
+}
+
+.poke:nth-child(2){
+    background-image: url('./images/poke\ \(2\).png');
+
+    left: 25%;
+    bottom: 25%;
+
+    animation-duration: 3s;
+}
+
+.poke:nth-child(3){
+    background-image: url('./images/poke\ \(3\).png');
+
+    left: 15%;
+    bottom: 15%;
+
+    animation-duration: 3s;
+}
+
+.poke:nth-child(4){
+    background-image: url('./images/poke\ \(4\).png');
+
+    left: 55%;
+    bottom: 55%;
+
+    animation-duration: 3s;
+}
+
+
+/*  */
+.container{
+    position: relative;
+}
