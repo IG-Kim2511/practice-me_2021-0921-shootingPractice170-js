@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*      body{
+                 position: relative;
+             } */
+        
+             .character{
+                 /* position: absolute;
+                 left: 10%;
+                 bottom: 5%;
+     
+                 width: 10vw; */            
+             }
+     
+             .btn_container{            
+                 position: fixed;
+                 top: 1rem;
+                 left: 20rem;                 
+             }
+     
+             .btn, .btn_c{
+                 font-size: 2rem;            
+             }
+     
+         </style>
+</head>
+<body>
+    <h1 class="title">poke</h1>
+    <div class="btn_container">
+        <button class="btn">constructer</button>
+        <button class="btn_c">class</button>
+    </div>
+    <div class="stage">
+        <!-- js -->
+    </div>
+
+<script>
+    const stageElem = document.querySelector(".stage");
+    const btn = document.querySelector(".btn");
+    const btnC = document.querySelector(".btn_c");
+
+    let num=0;  /* js 20 */
+
+// constructor
+
+
+class Character_c{
+    constructor(a_num){
+        this.mainElem = document.createElement('div');
+        this.mainElem.innerHTML=`
+        <img src="../img/poke${a_num}.png">
+        `;
+        stageElem.appendChild(this.mainElem);
+    }
+    sayHi(){
+        console.log("proto")
+    }
+
+}
+btnC.addEventListener('click',()=>{
+    num++;
+    let ig = new Character_c(num);
+
+});
+
+// 🍀prototype
+btn.addEventListener('click',()=>{
+
+    num++;
+    new Character(num);
+});
+
+function Character(a_num) {
+    this.mainElem = document.createElement('div');
+        this.mainElem.innerHTML=`
+        <img src="../img/poke${a_num}.png">
+        `;
+        stageElem.appendChild(this.mainElem);
+
+        this.init();
+    
+}
+
+Character.prototype={
+
+    constructor: Character,
+    init:function(){
+        console.log('pro')
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
