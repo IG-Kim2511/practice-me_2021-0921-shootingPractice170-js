@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            body{
+        text-align: center;
+    }
+
+    .btn {
+        font-size: 2rem;
+      }
+    .box {
+        width: 10vw;
+        height: 10vh;        
+
+        display:block;
+        margin: auto;
+        padding: 2rem;
+    }
+    
+    .fixed{
+        position: fixed;
+        top: 0;
+        left: 100px;
+    }
+
+    .number{
+        font-size: 2rem;
+        margin-left: 2rem;
+    }
+    .poke{
+        
+    }
+    </style>
+</head>
+<body>
+    <section class="fixed">
+        <h2>poke coin wave</h2>
+        <button class="btn">setInterval</button>
+        <span class="number">0</span>
+    </section>
+
+    <div class="box"></div>
+
+    <script>
+      const btn = document.querySelector(".btn");
+        const box = document.querySelector(".box");
+        const number = document.querySelector(".number");
+
+        let n = 0;
+
+        let timeId = setInterval(pokeHandler, 100);
+
+        function pokeHandler(params) {
+            let div = document.createElement('div');
+            div.className='poke';
+            div.innerHTML=`
+            <img src='../img/Pokecoin.png'>
+            `;
+            box.append(div);
+            
+        }
+
+        btn.addEventListener('click',function (params) {
+
+           n++;
+            number.innerHTML=`${n}`;
+
+            if (n > 5) {
+                clearInterval(timeId);
+                
+            }
+        });
+    
+
+
+
+
+    </script>
+</body>
+</html>
