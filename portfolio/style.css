@@ -1,7 +1,532 @@
-.home__container{
-    width: 10vw;
+
+
+
+/*  */
+
+
+:root{
+
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #bdbdbd;
+  
+    --color-pink: #fe918d;
+    --color-dark-pink: #ff6863;
+  
+    --color-black: #000000;
+    --color-dark-grey: #4d4d4d;
+    --color-grey: #616161;
+    --color-light-grey: #7c7979;
+  
+    --color-blue: #73aace;
+  
+    --color-yellow: #fff7d1;
+  
+    --color-orange: #feb546;
+    --color-strong-orange: #dc2f02;
+  
+    --color-mint: #2ec4b6;
+    --color-light-mint: #cbf3f0;
+  
+    /* Font size */
+  
+    --font-large: 48px;
+  
+    --font-medium: 28px;
+  
+    --font-regular: 18px;
+  
+    --font-small: 16px;
+  
+    --font-micro: 14px;
+  
+    /* Font weight */
+  
+    --weight-bold: 700;
+  
+    --weight-semi-bold: 600;
+  
+    --weight-regular: 400;
+  
+    /* Size */
+    /* 4px가 가장 대중적임 */
+    --size-border-radius-4px: 4px;
+  
+    /* Animation */
+    /* 300ms가 가장 대중적임*/
+    --animation_duration-300ms: 300ms;
+  
+    /* 연습을 위해...1초로 설정 */
+    --animation_1s_duration: 1s;
 }
 
-.home__container img{
-    width: 100%;
+*{
+    box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  cursor: default;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+li{
+    list-style: none;
+}
+button{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/*  */
+.job .job__logo{
+    width: 32px;
+}
+
+/* navbar */
+#navbar{
+    background-color: #2ec4b6;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    /* background-color: transparent; */
+    align-items: center;
+
+    color:black;
+    padding: 16px;
+
+    transition: all .3s ;
+    z-index: 1;
+    
+
+}
+
+/* js 58 scroll and class */
+#navbar.navbar--dark{
+    background-color: lightcoral;
+    padding: 16px;
+}
+
+.navbar__menu{
+    display: flex;
+}
+.navbar__menu__item{
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: .5rem;
+    border: 1px solid lightgreen;
+}
+
+/* (js 72) */
+.navbar__menu__item:hover{
+    border:red 1px solid;
+
+    background-color: lightsalmon;
+
+}
+
+.navbar__logo{
+    font-size: large;
+}
+
+/* toggle btn */
+
+.navbar__toggle-btn{
+    color: blue;
+
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 24px;
+    
+    /* css 12 */
+    display: none;
+}
+
+/* home */
+#home {
+  padding: 40px;
+  padding-top: 120px;
+  /*??!!! 가운데 정렬 */
+  text-align: center;
+  /* center no-repeat : 반응형 효과 */
+  background: url("img/back-dot.png") center no-repeat;
+  width: 40vw;
+}
+
+.home__avatar {
+  width: 100%;
+
+  border-radius: 50%;
+  border: 2px solid var(--color-black);
+}
+
+.home__title,
+.home__description{
+    color: balck;
+}
+
+.home__contact{
+    background-color: lightcoral;
+
+    border: 2px solid black;
+    border-radius: .25rem;
+
+    color: black;
+    font-size: 16px;
+    margin: 24px;
+    padding: 8px 12px;
+
+    transition: all 300ms linear inherit;
+}
+
+.section{
+    margin: auto;
+
+    text-align: center;
+    padding: 50px;
+    padding-top: 80px;
+}
+
+.section__container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* about */
+.about__majors{
+    background-color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+
+.major{
+    margin-bottom: 38px;
+}
+
+.major__icon{
+    width: 170px;
+    height: 170px;
+
+    line-height: 170px;
+
+    border: 1px solid blue;
+    border-radius: 50%;
+    color: lightsalmon;
+    font-size: 70px;
+
+    margin: auto;
+    margin-bottom: 16px;
+}
+
+/* hover */
+
+.major__icon:hover i{
+    color: orange;
+    transform: rotate(-30deg) scale(1.1);
+}
+
+.major__icon i{
+    transition: all 300ms;
+}
+
+/* about*/
+.job{
+    display: flex;
+    align-items: center;
+}
+
+.job__description{
+    margin: 0 16px;
+    text-align: left;
+}
+.job__name,
+.job--period{
+    color: grey;
+}
+
+/* skill */
+
+#skills{
+    background-color: lightgreen;
+}
+
+.skillset{
+    background-color: lightblue;
+    display: flex;
+    margin: 20px 0;
+}
+
+.skillset__left{
+    background-color: lightcoral;
+    flex-basis: 60%;
+    padding: 20px 40px;
+}
+
+.skillset__right{
+    flex-basis: 40$;
+}
+.skill{
+    margin-bottom: 32px;
+}
+.skill__description{
+    display: flex;
+    justify-content: space-between;
+}
+.Skill__bar{
+    border-color: lightyellow;
+    width: 100%;
+    height: 3px;
+}
+
+/* js */
+.skill__value{
+    height: 3px;
+    background-color: orange;
+}
+
+.tools{
+    background-color: #eee;
+}
+
+/* work */
+.work__categories{
+    margin: 40px;
+}
+
+.category__btn{
+    border: 1px solid lightgreen;
+    border-radius: .3rem;
+    padding: 8px 48px;
+}
+
+.category__btn{
+    border: 1px solid var(--color-dark-grey);
+    border-radius: .3rem;
+    padding: 8px 48px;
+}
+
+.category__count{
+    background-color: lightblue;
+
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+
+    border-radius: 50%;
+    color: grey;
+
+    display: inline-block;
+
+
+    position: relative;
+    top: -20px;
+    left: 4px;
+    opacity: 0;
+
+    transition: all 300ms linear;
+}
+
+.category__btn.selected .category__count,
+.category__btn:hover .category__count{
+    opacity: 1;
+    top: 0;
+}
+
+/* js 72 */
+
+.category__btn.selected,
+.category__btn:hover{
+    background-color: orange;
+    color: red;
+}
+
+.work__projects{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    opacity: 1;
+    transition: all 300ms linear;
+}
+
+/* js 70 */
+.work__projects.anim-out{
+    opacity: .6;
+    transform: scale(.9) translateY(40px); 
+    
+}
+
+/* css 16 */
+.project{
+    width: 280px;
+    height: 250px;
+    margin: 2px;
+    position: relative;
+
+    display: flex;
+   justify-content: center;
+   align-items: center;
+    flex-grow: 1;
+}
+/* css18 */
+
+.project__img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* js68 */
+
+.prjoect.invisible{
+    display: none;
+}
+
+.project__description {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-black);
+  
+    /* () :after */
+    /* css 22. project에 position:relateve; / .project안에서 absolute*/
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    /* vertical center align */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    /* css 20 .  글자가 밑에서 원래위치로 스르륵 올라오게  */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all var(--animation_duration-300ms) ease-in;
+  }
+
+  /* css 20  */
+.project:hover .project__description {
+    opacity: 0.8;
+    transform: translateY(0px);
+  }
+  
+  .project__description h3,
+  .project__description span {
+    color: var(--color-white);
+  }
+
+  .project__description h3:after {
+    background-color: var(--color-dark-white);
+  
+    content: " ";
+    display: block;
+    width: 25px;
+    height: 2px;
+      /* 중앙으로 위치조정 */
+  position: relative;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: 8px;
+}
+
+/* Testimonial */
+#testimonials {
+    background-color: var(--color-light-white);
+  }
+  
+  .testimonials {
+    margin: 40px;
+  }
+  .testimonial {
+    display: flex;
+    /* 중앙으로 정렬 */
+    justify-content: center;
+    margin: 32px 0;
+  }
+
+
+  .testimonial__avatar {
+    width: 80px;
+    border-radius: 50%;
+  }
+
+
+  
+.testimonial__avatar:nth-child(odd) {
+    margin-right: 40px;
+  }
+  .testimonial__avatar:nth-child(even) {
+    margin-left: 40px;
+  }
+
+  .testimonial__speech-bubble {
+    padding: 18px;
+    background-color: var(--color-white);
+    border-radius: var(--size-border-radius-4px);
+  }
+  /* Contact */
+  #contact {
+    background-color: var(--color-orange);
+  }
+  .contact__title,
+.contact__email,
+.contact__rights {
+  color: var(--color-white);
+}
+
+
+.contact__links i:hover {
+    color: var(--color-blue);
+    transform: scale(1.3);
+    transition: all var(--animation_duration-300ms) ease-in;
+  }
+
+  .contact__email2 {
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    border: solid 1px var(--color-white);
+  
+    border-radius: 0.5rem;
+  }
+
+  /* Scroll arrow up*/
+.arrow-up {
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+  
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+  
+    color: var(--color-orange);
+    background-color: var(--color-blue);
+    border-radius: 50%;
+    /* js 90. display:none으로 하면 transition효과가 안먹힘. */
+    opacity: 0;
+    /*css 30 클릭 안되게함 */
+    pointer-events: none;
+  
+    transition: all var(--animation_duration-300ms) ease-in;
+  }
+  
