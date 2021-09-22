@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        
+.word-input-block {
+  background-color: var(--color-grey);
+  cursor: not-allowed;
+}
+
+.game-info {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.time,
+.score,
+.score_wrong {
+  font-size: 30px;
+}
+.button {
+  width: 200px;
+  height: 35px;
+  background: var(--naver-color);
+  color: var(--color-white);
+  border: none;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.button_stop {
+  width: 200px;
+  height: 35px;
+  background: var(--naver-color);
+  color: var(--color-white);
+  border: none;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+
+.loading {
+  background-color: var(--color-grey);
+  cursor: not-allowed;
+}
+
+    </style>
+
+</head>
+<body>
+
+    <div class="header">
+        <!-- <h1>Hi Kara! I love you</h1> -->
+        <h1>Typing game</h1>
+      </div>
+
+      <div class="word-display">let's start</div>
+
+      <div class="word-input-box">
+        <input type="text" class="word-input" />
+        <h1 class="answer">good!</h1>        
+      </div>
+
+      <div class="game-info">
+        <div>Time limit : <span class="time">0</span> seconds</div>
+      </div>
+
+      <div class="game-info">  
+        <div>Score: <span class="score">0</span></div>
+      </div>
+
+      <div class="game-info">  
+        <div>wrong: <span class="score_wrong">0</span></div>
+      </div>
+    
+      <button class="button">loading</button>
+      <button class="button_stop">stop</button>
+
+    <script>
+
+
+let gameTime = 10;
+let time = gameTime;
+let timeInterval;
+let score = 0;
+let wrong = 0;
+let words =[];
+
+const answer = document.querySelector('.answer');
+const button = document.querySelector('.button');
+const buttonStop= document.querySelector('.button_stop');
+
+const wordDisplay = document.querySelector('.word-display');
+const wordInput = document.querySelector('.word-input');
+const wrongDisplay = document.querySelector('.score_wrong');
+
+const scoreDisplay = document.querySelector('.score');
+const timeDisplay = document.querySelector('.time');
+
+// js 1 start
+init();
+
+function init(params) {
+    getWords();
+    wordInput.addEventListener('input',match);
+    wordInput.addEventListener('change',matchwrong);
+
+    time = 1000;
+    timeDisplay.innerHTML = time;
+}
+
+//js 4. axios /  new words
+const url = "https://random-word-api.herokuapp.com/word?number=1000";
+
+function getWords() {    
+    axios.get(url)
+    .then(function (response) {
+        // handle success
+        
+        // word.floor(response.data.random() * max);
+        // console.log(word)
+    
+        response.data.forEach((a) => {
+            if (a.length < 7) {
+                words.push(a)            
+            }  
+        });
+
+        console.log(words)
+        buttonChange('game start');
+    
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
+    .then(function () {
+        // always executed
+    });   
+}
+
+// js 2 button click
+button.addEventListener('click',run);
+wordInput.addEventListener('click',run);
+
+function run(params) {
+    time = gameTime;
+    buttonChange(`gaming..`);
+    button.classList.add('loading');
+
+    countDown();
+
+    wordDisplay.innerHTML = words[Math.floor(Math.random()*100)];
+    
+}
+
+
+wordInput.addEventListener('keypress',run_enter);
+
+function run_enter(e) {
+    if (e.key === 'Enter') {         
+        run();
+      }    
+}
+
+
+
+
+// js 22-2 .countDown
+function countDown (params) {
+    if (time>0) {
+        time--;
+        
+    } else if(time ===0){
+        run();
+        
+    }
+    timeDisplay.innerHTML = time;
+    
+}
+
+// js 2-2 count down
+
+timeInterval = setInterval(countDown, 1000);
+
+// js 2-3
+
+function name(params) {
+    
+}
+
+
+
+
+
+
+
+function match(params) {
+    
+}
+
+function matchwrong(params) {
+    
+}
+
+
+
+
+    </script>
+</body>
+</html>
